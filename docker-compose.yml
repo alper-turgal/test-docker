@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   db:
+    container_name: postgres_db
     image: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
@@ -12,6 +13,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
   web:
+    container_name: time_banking
     restart: always
     build: .
     command: python manage.py runserver 0.0.0.0:8000
